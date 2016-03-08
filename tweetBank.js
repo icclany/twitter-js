@@ -36,9 +36,7 @@ var getFakeTweet = function() {
   return "Fullstack Academy is " + randArrayEl(awesome_adj) + "! The instructors are just so " + randArrayEl(awesome_adj) + ". #fullstacklove #codedreams";
 };
 
-for (var i = 0; i < 10; i++) {
+for (var i = 0; i < 9; i++) {
   module.exports.add( getFakeName(), getFakeTweet() );
 }
-
-// console.log(data)
-// console.log(module.exports.list());
+add("Sean", "I love my life"); // TEST

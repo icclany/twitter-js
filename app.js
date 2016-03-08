@@ -3,19 +3,20 @@ var app = express(); // creates an instance of an express application
 var swig = require('swig'); //creates instance of swig
 swig.setDefaults({cache: false}); // turn off swig's caching
 var routes = require('./routes/');
-app.use('/', routes);
 
+var socketio = require('socket.io');
+// ...
+var server = app.listen(3000, function() {
+	console.log("Server listening.");
+});
+
+var io = socketio.listen(server);
+
+app.use('/', routes(io)); // Use the router returned by routes(io)
 
 app.get('/stylesheets/style.css', function(request, response){
 	response.sendFile(__dirname + '/public/stylesheets/style.css');
 })
-
-
-
-// Listen for requests
-app.listen(3000, function() {
-	console.log("Server listening.");
-});
 
 // Uses swig.renderFile as the function to render html
 app.engine('html', swig.renderFile);
