@@ -15,5 +15,8 @@
   "bugs": {
     "url": "https://github.com/icclany/twitter-js/issues"
   },
-  "homepage": "https://github.com/icclany/twitter-js#readme"
+  "homepage": "https://github.com/icclany/twitter-js#readme",
+  "dependencies": {
+    "express": "^4.13.4"
+  }
 }
