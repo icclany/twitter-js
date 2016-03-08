@@ -2,11 +2,15 @@ var express = require( 'express' );
 var app = express(); // creates an instance of an express application
 var swig = require('swig'); //creates instance of swig
 swig.setDefaults({cache: false}); // turn off swig's caching
+var routes = require('./routes/');
+app.use('/', routes);
 
-// Log message upon connection
-app.get("/", function(request, response) {
-	response.render( 'index', {title: 'Hall of Fame', people: people} );
+
+app.get('/stylesheets/style.css', function(request, response){
+	response.sendFile(__dirname + '/public/stylesheets/style.css');
 })
+
+
 
 // Listen for requests
 app.listen(3000, function() {
