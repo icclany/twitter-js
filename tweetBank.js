@@ -3,9 +3,11 @@
 var _ = require('lodash');
 
 var data = []; // store tweets here
+var idCounter = 0;
 
 function add (name, text) {
-  data.push({ name: name, text: text });
+  data.push({ name: name, text: text, id: idCounter});
+  idCounter++; // Make new unique id
 }
 
 function list () {
@@ -15,10 +17,7 @@ function list () {
 function find (properties) {
   return _.cloneDeep(_.filter(data, properties));
 }
-
 module.exports = { add: add, list: list, find: find };
-
-
 
 //FAKE TWEETS FOR TESTING
 var randArrayEl = function(arr) {

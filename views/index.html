@@ -31,7 +31,7 @@
       <!-- display tweets here -->
       {% for tweet in tweets %}
         <img src="https://pbs.twimg.com/profile_images/652151243322847232/AH96nB4f.jpg" height="48" width="48"><br>
-        <li><a href="/users/{{tweet.name}}"><b>{{tweet.name}}</b></a> - {{tweet.text}}</li>
+        <li><a href="/users/{{tweet.name}}"><b>{{tweet.name}}</b></a> - <a href="/tweets/{{tweet.id}}">{{tweet.text}}</a></li>
       {% endfor %}
 
       </ul>

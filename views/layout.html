@@ -90,7 +90,7 @@
   // When 'new_tweet' events are fired, do something with the packaged tweet
   socket.on('new_tweet', function (tweetObject) { 
     console.log(tweetObject.text);
-    alert('Refreshing... check the console...');
+    //alert('Refreshing... check the console...');
     // Add to DOM without having to refresh for other user
     $('#tweets').append(tweetObject.html);
   }); 

@@ -21,6 +21,15 @@ module.exports = function (io) {
 		res.render( 'index', { title: 'Twitter.js - Posts by '+name.toString(), tweets: list, userName: name.toString(), showForm: true} );
 	});
 
+	// Shows a page with a single tweet
+	router.get('/tweets/:id', function(req, res) {
+		var id = Number(req.params.id); // Since params id is a string, and id's are numbers
+		var list = tweetBank.find( {id: id} ); //an array with name, text, id 
+		var name = list[0].name;
+		res.render( 'index', { title: 'Twitter.js - Posts by '+name.toString(), tweets: list, userName: name.toString(), showForm: true} );
+	});
+
+	// Post a tweet
 	router.post('/tweets', function(req, res) {
 		var name = req.body.name;
 		var text = req.body.text;
